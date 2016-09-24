@@ -22,23 +22,21 @@ public class DaoException extends ServiceException {
      * Create a new instance of DaoException. <br>
      * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
      * 
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param message the message
      */
-    public DaoException(String formatedMessage, Object... vars) {
-        super(formatedMessage, vars);
+    public DaoException(String message) {
+        super(message);
     }
 
     /**
      * Create a new instance of DaoException. <br>
      * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
      * 
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public DaoException(String formatedMessage, Throwable cause, Object... vars) {
-        super(formatedMessage, cause, vars);
+    public DaoException(String message, Throwable cause) {
+        super(message, cause);
     }
 
     /**
@@ -46,23 +44,21 @@ public class DaoException extends ServiceException {
      * {@code errLevel = ErrLevel.ERR}
      * 
      * @param code error code string which will be managed by message.properties
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param message the message
      */
-    public DaoException(String code, String formatedMessage, Object... vars) {
-        super(code, formatedMessage, vars);
+    public DaoException(String code, String message) {
+        super(code, message);
     }
 
     /**
      * Create a new instance of DaoException.
      * 
      * @param code error code string which will be managed by message.properties
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public DaoException(String code, String formatedMessage, Throwable cause, Object... vars) {
-        super(code, formatedMessage, cause, vars);
+    public DaoException(String code, String message, Throwable cause) {
+        super(code, message, cause);
     }
 
     /**
@@ -70,11 +66,10 @@ public class DaoException extends ServiceException {
      * 
      * @param code error code string which will be managed by message.properties
      * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param message the message
      */
-    public DaoException(String code, ErrLevel level, String formatedMessage, Object... vars) {
-        super(code, level, formatedMessage, vars);
+    public DaoException(String code, ErrLevel level, String message) {
+        super(code, level, message);
     }
 
     /**
@@ -82,11 +77,10 @@ public class DaoException extends ServiceException {
      * 
      * @param code error code string which will be managed by message.properties
      * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public DaoException(String code, ErrLevel level, String formatedMessage, Throwable cause, Object... vars) {
-        super(code, level, formatedMessage, cause, vars);
+    public DaoException(String code, ErrLevel level, String message, Throwable cause) {
+        super(code, level, message, cause);
     }
 }

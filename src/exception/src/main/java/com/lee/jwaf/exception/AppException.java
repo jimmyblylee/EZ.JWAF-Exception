@@ -24,31 +24,26 @@ public class AppException extends Throwable {
     private final String CNS_DEFAULT_ERR_CODE = "ERR-UNKNOWN-01";
     private String errCode = CNS_DEFAULT_ERR_CODE;
     private ErrLevel errLevel = ErrLevel.ERR;
-    private Object[] vars;
 
     /**
      * Create a new instance of AppException. <br>
      * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
      * 
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param message the message
      */
-    public AppException(String formatedMessage, Object... vars) {
-        super(formatedMessage);
-        this.vars = vars;
+    public AppException(String message) {
+        super(message);
     }
 
     /**
      * Create a new instance of AppException. <br>
      * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
      * 
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public AppException(String formatedMessage, Throwable cause, Object... vars) {
-        super(formatedMessage, cause);
-        this.vars = vars;
+    public AppException(String message, Throwable cause) {
+        super(message, cause);
     }
 
     /**
@@ -56,27 +51,23 @@ public class AppException extends Throwable {
      * {@code errLevel = ErrLevel.ERR}
      * 
      * @param code error code string which will be managed by message.properties
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param messages the message
      */
-    public AppException(String code, String formatedMessage, Object... vars) {
-        super(formatedMessage);
+    public AppException(String code, String messages) {
+        super(messages);
         this.errCode = code;
-        this.vars = vars;
     }
 
     /**
      * Create a new instance of AppException.
      * 
      * @param code error code string which will be managed by message.properties
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public AppException(String code, String formatedMessage, Throwable cause, Object... vars) {
-        super(formatedMessage, cause);
+    public AppException(String code, String message, Throwable cause) {
+        super(message, cause);
         this.errCode = code;
-        this.vars = vars;
     }
 
     /**
@@ -84,14 +75,12 @@ public class AppException extends Throwable {
      * 
      * @param code error code string which will be managed by message.properties
      * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
+     * @param message the message
      */
-    public AppException(String code, ErrLevel level, String formatedMessage, Object... vars) {
-        super(formatedMessage);
+    public AppException(String code, ErrLevel level, String message) {
+        super(message);
         this.errCode = code;
         this.errLevel = level;
-        this.vars = vars;
     }
 
     /**
@@ -99,15 +88,13 @@ public class AppException extends Throwable {
      * 
      * @param code error code string which will be managed by message.properties
      * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param formatedMessage messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
-     * @param vars vars for formated error message. " this {} should be {} ", e.g.
      */
-    public AppException(String code, ErrLevel level, String formatedMessage, Throwable cause, Object... vars) {
-        super(formatedMessage, cause);
+    public AppException(String code, ErrLevel level, String message, Throwable cause) {
+        super(message, cause);
         this.errCode = code;
         this.errLevel = level;
-        this.vars = vars;
     }
 
     /**
@@ -136,26 +123,6 @@ public class AppException extends Throwable {
      */
     public void setErrLevel(ErrLevel level) {
         this.errLevel = level;
-    }
-
-    /**
-     * Description : return the formated message replaced with given vars by "{}" <br>
-     * Create Time : Apr 12, 2016 <br>
-     * Create by : xiangyu_li@asdc.com.cn <br>
-     * 
-     * @return formated string by replaced the {} with vars
-     */
-    @Override
-    public String getMessage() {
-        String msg = super.getMessage();
-        if (vars != null && vars.length > 0) {
-            for (Object var : vars) {
-                if (var != null) {
-                    msg = msg.replaceFirst("\\{\\}", var.toString());
-                }
-            }
-        }
-        return msg;
     }
 
     /**
