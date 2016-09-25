@@ -21,13 +21,12 @@ public class AppException extends Throwable {
 
     private static final long serialVersionUID = 4998100661136469807L;
 
-    private final String CNS_DEFAULT_ERR_CODE = "ERR-UNKNOWN-01";
+    private final String CNS_DEFAULT_ERR_CODE = "ERR-UNKNOWN-001";
     private String errCode = CNS_DEFAULT_ERR_CODE;
-    private ErrLevel errLevel = ErrLevel.ERR;
 
     /**
      * Create a new instance of AppException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      */
@@ -37,7 +36,7 @@ public class AppException extends Throwable {
 
     /**
      * Create a new instance of AppException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      * @param cause error cause
@@ -48,7 +47,6 @@ public class AppException extends Throwable {
 
     /**
      * Create a new instance of AppException. <br>
-     * {@code errLevel = ErrLevel.ERR}
      * 
      * @param code error code string which will be managed by message.properties
      * @param messages the message
@@ -71,33 +69,6 @@ public class AppException extends Throwable {
     }
 
     /**
-     * Create a new instance of AppException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     */
-    public AppException(String code, ErrLevel level, String message) {
-        super(message);
-        this.errCode = code;
-        this.errLevel = level;
-    }
-
-    /**
-     * Create a new instance of AppException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     * @param cause error cause
-     */
-    public AppException(String code, ErrLevel level, String message, Throwable cause) {
-        super(message, cause);
-        this.errCode = code;
-        this.errLevel = level;
-    }
-
-    /**
      * @return the errorCode
      */
     public String getErrCode() {
@@ -109,20 +80,6 @@ public class AppException extends Throwable {
      */
     public void setErrCode(String errCode) {
         this.errCode = errCode;
-    }
-
-    /**
-     * @return the errorLevel
-     */
-    public ErrLevel getErrLevel() {
-        return errLevel;
-    }
-
-    /**
-     * @param level the level to set
-     */
-    public void setErrLevel(ErrLevel level) {
-        this.errLevel = level;
     }
 
     /**

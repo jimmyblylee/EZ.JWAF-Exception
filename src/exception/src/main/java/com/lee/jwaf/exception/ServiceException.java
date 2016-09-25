@@ -20,7 +20,7 @@ public class ServiceException extends AppException {
 
     /**
      * Create a new instance of ServiceException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      */
@@ -30,7 +30,7 @@ public class ServiceException extends AppException {
 
     /**
      * Create a new instance of ServiceException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      * @param cause error cause
@@ -41,7 +41,6 @@ public class ServiceException extends AppException {
 
     /**
      * Create a new instance of ServiceException. <br>
-     * {@code errLevel = ErrLevel.ERR}
      * 
      * @param code error code string which will be managed by message.properties
      * @param message the message
@@ -54,33 +53,10 @@ public class ServiceException extends AppException {
      * Create a new instance of ServiceException.
      * 
      * @param code error code string which will be managed by message.properties
-     * @param message messages formated with "{}" to fill with given parameter
+     * @param message the message
      * @param cause error cause
      */
     public ServiceException(String code, String message, Throwable cause) {
         super(code, message, cause);
-    }
-
-    /**
-     * Create a new instance of ServiceException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     */
-    public ServiceException(String code, ErrLevel level, String message) {
-        super(code, level, message);
-    }
-
-    /**
-     * Create a new instance of ServiceException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     * @param cause error cause
-     */
-    public ServiceException(String code, ErrLevel level, String message, Throwable cause) {
-        super(code, level, message, cause);
     }
 }

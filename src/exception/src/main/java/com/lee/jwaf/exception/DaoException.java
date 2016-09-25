@@ -20,7 +20,7 @@ public class DaoException extends ServiceException {
 
     /**
      * Create a new instance of DaoException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      */
@@ -30,7 +30,7 @@ public class DaoException extends ServiceException {
 
     /**
      * Create a new instance of DaoException. <br>
-     * {@code errCode = "ERR-UNKNOWN-01" and errLevel = ErrLevel.ERR}
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      * @param cause error cause
@@ -41,7 +41,6 @@ public class DaoException extends ServiceException {
 
     /**
      * Create a new instance of DaoException. <br>
-     * {@code errLevel = ErrLevel.ERR}
      * 
      * @param code error code string which will be managed by message.properties
      * @param message the message
@@ -59,28 +58,5 @@ public class DaoException extends ServiceException {
      */
     public DaoException(String code, String message, Throwable cause) {
         super(code, message, cause);
-    }
-
-    /**
-     * Create a new instance of DaoException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     */
-    public DaoException(String code, ErrLevel level, String message) {
-        super(code, level, message);
-    }
-
-    /**
-     * Create a new instance of DaoException.
-     * 
-     * @param code error code string which will be managed by message.properties
-     * @param level error level by enum {@link ErrLevel#WARN} or {@link ErrLevel#ERR}
-     * @param message the message
-     * @param cause error cause
-     */
-    public DaoException(String code, ErrLevel level, String message, Throwable cause) {
-        super(code, level, message, cause);
     }
 }
