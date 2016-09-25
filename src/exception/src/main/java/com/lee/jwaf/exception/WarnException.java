@@ -20,10 +20,43 @@ public class WarnException extends AppException {
 
     /**
      * Create a new instance of WarnException. <br>
+     * {@code errCode = "ERR-UNKNOWN-001"}
      * 
      * @param message the message
      */
     public WarnException(String message) {
         super(message);
+    }
+
+    /**
+     * Create a new instance of WarnException. <br>
+     * {@code errCode = "ERR-UNKNOWN-001"}
+     * 
+     * @param message the message
+     * @param cause error cause
+     */
+    public WarnException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    /**
+     * Create a new instance of WarnException. <br>
+     * 
+     * @param code error code string which will be managed by message.properties
+     * @param message the message
+     */
+    public WarnException(String code, String message) {
+        super(code, message);
+    }
+
+    /**
+     * Create a new instance of WarnException.
+     * 
+     * @param code error code string which will be managed by message.properties
+     * @param message the message
+     * @param cause error cause
+     */
+    public WarnException(String code, String message, Throwable cause) {
+        super(code, message, cause);
     }
 }
