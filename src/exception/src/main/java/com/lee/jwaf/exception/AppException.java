@@ -1,13 +1,25 @@
-/**
- * Project Name : jwaf-exception <br>
- * File Name : AppException.java <br>
- * Package Name : com.lee.jwaf.exception <br>
- * Create Time : 2016-09-17 <br>
- * Create by : jimmyblylee@126.com <br>
- * Copyright © 2006, 2016, Jimmybly Lee. All rights reserved.
- */
+/* ***************************************************************************
+ * EZ.JWAF/EZ.JCWAP: Easy series Production.
+ * Including JWAF(Java-based Web Application Framework)
+ * and JCWAP(Java-based Customized Web Application Platform).
+ * Copyright (C) 2016-2017 the original author or authors.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of MIT License as published by
+ * the Free Software Foundation;
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the MIT License for more details.
+ *
+ * You should have received a copy of the MIT License along
+ * with this library; if not, write to the Free Software Foundation.
+ * ***************************************************************************/
+
 package com.lee.jwaf.exception;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -15,19 +27,24 @@ import java.io.StringWriter;
  * ClassName : AppException <br>
  * Description : Application Exception <br>
  * Create Time : 2016-09-17 <br>
- * Create by : jimmyblylee@126.com
+ * @author  jimmyblylee@126.com
  */
+@SuppressWarnings("WeakerAccess")
 public class AppException extends Throwable {
 
     private static final long serialVersionUID = 4998100661136469807L;
 
+    /** Default error code. */
     private final String CNS_DEFAULT_ERR_CODE = "ERR-UNKNOWN-001";
+    /** Error code.*/
+    //CSOFF: MutableException
     private String errCode = CNS_DEFAULT_ERR_CODE;
+    //CSON: MutableException
 
     /**
      * Create a new instance of AppException. <br>
      * {@code errCode = "ERR-UNKNOWN-001"}
-     * 
+     *
      * @param message the message
      */
     public AppException(String message) {
@@ -37,7 +54,7 @@ public class AppException extends Throwable {
     /**
      * Create a new instance of AppException. <br>
      * {@code errCode = "ERR-UNKNOWN-001"}
-     * 
+     *
      * @param message the message
      * @param cause error cause
      */
@@ -47,7 +64,7 @@ public class AppException extends Throwable {
 
     /**
      * Create a new instance of AppException. <br>
-     * 
+     *
      * @param code error code string which will be managed by message.properties
      * @param messages the message
      */
@@ -58,7 +75,7 @@ public class AppException extends Throwable {
 
     /**
      * Create a new instance of AppException.
-     * 
+     *
      * @param code error code string which will be managed by message.properties
      * @param message the message
      * @param cause error cause
@@ -69,15 +86,17 @@ public class AppException extends Throwable {
     }
 
     /**
-     * @return the errorCode
+     * @return the errorCode.
      */
+    @SuppressWarnings("unused")
     public String getErrCode() {
         return errCode;
     }
 
     /**
-     * @param errCode the errorCode to set
+     * @param errCode the errorCode to set.
      */
+    @SuppressWarnings("unused")
     public void setErrCode(String errCode) {
         this.errCode = errCode;
     }
@@ -89,11 +108,12 @@ public class AppException extends Throwable {
      *
      * @return exception stack as one single string
      */
+    @SuppressWarnings("unused")
     public String getStackString() {
         String exceptionStack = "";
         if (this.getCause() != null) {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
+            final StringWriter sw = new StringWriter();
+            final PrintWriter pw = new PrintWriter(sw);
             try {
                 this.printStackTrace(pw);
                 exceptionStack = sw.toString();
@@ -101,7 +121,7 @@ public class AppException extends Throwable {
                 try {
                     sw.close();
                     pw.close();
-                } catch (Exception e) {
+                } catch (IOException ex) {
                     // ignore
                 }
             }
