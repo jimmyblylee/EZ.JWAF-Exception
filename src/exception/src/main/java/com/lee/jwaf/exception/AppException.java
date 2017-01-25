@@ -30,7 +30,7 @@ import java.io.StringWriter;
  * @author  jimmyblylee@126.com
  */
 @SuppressWarnings("WeakerAccess")
-public class AppException extends Throwable {
+public class AppException extends Exception {
 
     private static final long serialVersionUID = 4998100661136469807L;
 
